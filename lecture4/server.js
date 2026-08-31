@@ -15,7 +15,7 @@ app.get("/about",(req,res)=>{
     res.send("<h1>Hello from about page</h1>")
 })
 app.get("/users",(req,res)=>{
-    res.json(users)
+    res.json(users) // json formate or object type
 })
 app.listen(Port,()=>{
     console.log(`server is running on port {Port}`)
