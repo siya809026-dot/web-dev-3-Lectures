@@ -36,3 +36,4 @@ else if(operation === "power"){
 else{
     console.log("Invalid operation")
 }
+console.log(data)

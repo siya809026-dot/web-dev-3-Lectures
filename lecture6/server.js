@@ -2,9 +2,10 @@ const express = require("express");
 const app = express()
 
 app.get("/:id",(req,res)=>{
-    console.log(req.url)
-    console.log(req.method)
-    console.log(req.headers)
+    // console.log(req.url)
+    // console.log(req.method)
+    // console.log(req.headers)
+    console.log(req.params.id)
     res.send("welcome sidhu")
 })
 app.get("/",(req,res)=>{
