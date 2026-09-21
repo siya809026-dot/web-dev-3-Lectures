@@ -3,13 +3,13 @@ const morgan = require("morgan");
 const app = express();
 const PORT = 3000
 app.use(morgan())
-// const logmiddleware = (req,res,next)=>{
-//     //console.log(req.name)
-//     req.name = "john Doe"
-//     console.log(`${req.method} ${req.url}`,"Time:",new Date().toLocaleString());
-//     // res.send("Hello from middleware")
-//     next()
-// }
+const logmiddleware = (req,res,next)=>{
+    //console.log(req.name)
+    req.name = "john Doe"
+    console.log(`${req.method} ${req.url}`,"Time:",new Date().toLocaleString());
+    // res.send("Hello from middleware")
+    next()
+}
 
 const apicheckmiddleware=(req,res,next)=>{
     if(req.query.API_KEY === "1234"){
@@ -19,14 +19,14 @@ const apicheckmiddleware=(req,res,next)=>{
         res.send("Api invalid")
     }
 }
-// app.use(logmiddleware);
-app.use(apicheckmiddleware);
+app.use(logmiddleware);
+// app.use(apicheckmiddleware);  ///global middleware
  
 app.get("/",(req,res)=>{
     console.log("hello world")
     res.send("Hello world")
 })
-app.get("/data",(req,res)=>{
+app.get("/data",apicheckmiddleware,(req,res)=>{  // route level middleware
     console.log("Hello data");
     res.json({
         city:"Newyork",
