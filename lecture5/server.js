@@ -38,7 +38,7 @@ app.put("/employees/:id",(req,res)=>{
         res.status(404).json({success:false,message:"employee not found"})
     }
     result.name = employee.name;
-    result.salary = employee.salary;
+    result.salary = employee.salary; 
     result.department = employee.department;
     res.json({success:true,employee})
 })
@@ -47,8 +47,7 @@ app.delete("/employees/:id",(req,res)=>{
     const result = employees.find((employee)=>employee.empId===Number(id));
     if(!result){
         res.status(400).json({success:false,message:"employee not found"})
-    }
-    employees.splice(id-1,1);
+    }u employees.splice(id-1,1);
     res.json({success:true,result})
 })
 app.listen(3000,()=>console.log(`server is running on port 3000`)) 

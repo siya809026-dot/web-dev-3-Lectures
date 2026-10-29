@@ -32,13 +32,13 @@ if(req.url=="/"&& req.method=="GET"){
     req.on("data",(chunk)=>{
         body+=chunk;
     });
-    req.on("end",()=>{
-        const users = JSON.parse(body);
-        user.push(users);
-        res.writeHead(200,{"content-type":"application/json"});
-        res.write(JSON.stringify({"success":true,"message":"users created successfully"}));
-        res.end();                    
-    })    
+    // req.on("end",()=>{
+    //     const users = JSON.parse(body);
+    //     user.push(users);
+    //     res.writeHead(200,{"content-type":"application/json"});
+    //     res.write(JSON.stringify({"success":true,"message":"users created successfully"}));
+    //     res.end();                    
+    // })    
 }else{
     res.writeHead(404,{"Content-type":"text/html"});
     res.write("<h1>404 page notfound<h1>");

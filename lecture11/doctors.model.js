@@ -1,0 +1,25 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const doctorsSchema = new Schema({
+    name:{
+        type:String,
+        required: true
+    },
+    experience:{
+        type:Number,
+        required: true
+    },
+    fees:{
+        type:Number,
+        required: true
+    },
+    salary:{
+        type:Number,
+        required: true
+    },
+    department:{
+        type:String,
+        required: true
+    }
+},{})
+module.exports = mongoose.model('Doctors',doctorsSchema,'Doctors');
